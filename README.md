@@ -58,83 +58,51 @@ The model weights after our finetuning is  ZoeDepthDualv1_12-Aug_17-48-9658432fb
 You can download the MS2 dataset from this [link](https://sites.google.com/view/multi-spectral-stereo-dataset/download). We use the left RGB images, left thermal images, and the pojected LiDAR deptha maps. We follow the official train/val/test splits. The train split consists of 7.6K image pairs, while the test split includes 2.3K, 2.3K, and 2.5K image pairs under 'day', 'night', and 'rainy' conditions, respectively.
 Due to misalignment between the projected ground-truth filtered LiDAR depth ( in depth_filtered folders) and the image in the officially provided dataset—particularly at image edges—training directly with the provided LiDAR depth maps often produces blurred depth predictions. To mitigate this issue, we further filter the LiDAR depth map (in depth_filtered folders) using two strategies: (i) remove depths that exhibit significant pixel-intensity inconsistencies when back-projecting LiDAR points into both the left and right images, and (ii) remove depths that substantially deviate from those obtained via stereo matching, [RAFT-Stereo](https://github.com/princeton-vl/RAFT-Stereo).  Please download our filtered projected LiDAR depth on this [page]() and merge it with the officially downloaded dataset. The difference between the officially provided depth (depth_filtered) and our filtered depth (depth_filtered_myrefine) is depicted [here](./assets/MS2_Gt_Depth_Issue.pdf). While we utilize our filtered projected LiDAR depths (in depth_filtered_myrefine folders) during training to achieve sharper predicted depths, we continue to use the officially provided LiDAR depth (in depth_filtered folders) for evaluation to ensure fairness and thoroughness. Although our setting yields crisper depth predictions, we find it slightly compromises certain evaluation metrics. 
 
+Finally, the directory structure of the MS2 dataset is like:
 
-
-<details> <summary>📁 Finally the directory structure is like this: </summary>
-```text
-    xxx/Depth-Anything/metric_depth/data/ms2thermal/
-    ├── odom
-    │   ├── _2021-08-06-10-59-33
-    │   ├── <seq name>
-    ├── sync_data
-    │   ├── _2021-08-06-10-59-33
-    │   │   ├── calib.npy
-    │   │   ├── gps_imu
-    │   │   │   ├── data
-    │   │   │   ├── dataformat.txt
-    │   │   │   └── data_timestamp.txt
-    │   │   ├── lidar
-    │   │   │   ├── left
-    │   │   │   ├── left_timestamp.txt
-    │   │   │   ├── right
-    │   │   │   └── right_timestamp.txt
-    │   │   ├── nir
-    │   │   │   ├── img_left
-    │   │   │   ├── img_left_timestamp.txt
-    │   │   │   ├── img_right
-    │   │   │   └── img_right_timestamp.txt
-    │   │   ├── readme.txt
-    │   │   ├── rgb
-    │   │   │   ├── img_left
-    │   │   │   ├── img_left_skymask
-    │   │   │   ├── img_left_timestamp.txt
-    │   │   │   ├── img_right
-    │   │   │   ├── img_right_timestamp.txt
-    │   │   │   ├── raftstereo_disp_left
-    │   │   │   └── raftstereo_disp_left_sgm
-    │   │   └── thr
-    │   │       ├── img_left
-    │   │       ├── img_left_timestamp.txt
-    │   │       ├── img_right
-    │   │       ├── img_right_timestamp.txt
-    │   │       ├── raftstereo_disp_left
-    │   │       └── raftstereo_disp_left_sgm
-    │   ├── <seq name>
-    ├── proj_depth
-    │   ├── _2021-08-06-10-59-33
-    │   │   ├── nir
-    │   │   │   ├── depth
-    │   │   │   ├── depth_filtered
-    │   │   │   ├── depth_multi
-    │   │   │   ├── intensity
-    │   │   │   └── intensity_multi
-    │   │   ├── readme.txt
-    │   │   ├── rgb
-    │   │   │   ├── depth
-    │   │   │   ├── depth_filtered
-    │   │   │   ├── depth_filtered_myrefine
-    │   │   │   ├── depth_multi
-    │   │   │   ├── intensity
-    │   │   │   └── intensity_multi
-    │   │   └── thr
-    │   │       ├── depth
-    │   │       ├── depth_filtered
-    │   │       ├── depth_filtered_myrefine
-    │   │       ├── depth_multi
-    │   │       ├── intensity
-    │   │       └── intensity_multi
-    │   ├── <seq name>
-    ├── test_day_list.txt
-    ├── test_night_list.txt
-    ├── test_rainy_list.txt
-    ├── train_list.txt
-    ├── train_split0_list.txt
-    ├── train_split1_list.txt
-    └── val_list.txt
-```
-
-
-</details>
+>     xxx/Depth-Anything/metric_depth/data/ms2thermal/
+>     ├── odom
+>     │   ├── _2021-08-06-10-59-33
+>     │   ├── <seq name>
+>     ├── sync_data
+>     │   ├── _2021-08-06-10-59-33
+>     │   │   ├── calib.npy
+>     │   │   ├── gps_imu
+>     │   │   │   ├── data
+>     │   │   │   ├── dataformat.txt
+>     │   │   │   └── data_timestamp.txt
+>     │   │   ├── readme.txt
+>     │   │   ├── rgb
+>     │   │   │   ├── img_left
+>     │   │   │   ├── img_left_skymask
+>     │   │   │   ├── img_left_timestamp.txt
+>     │   │   │   ├── img_right
+>     │   │   │   ├── img_right_timestamp.txt
+>     │   │   └── thr
+>     │   │       ├── img_left
+>     │   │       ├── img_left_timestamp.txt
+>     │   │       ├── img_right
+>     │   │       ├── img_right_timestamp.txt
+>     │   ├── <seq name>
+>     ├── proj_depth
+>     │   ├── _2021-08-06-10-59-33
+>     │   │   ├── readme.txt
+>     │   │   ├── rgb
+>     │   │   │   ├── depth
+>     │   │   │   ├── depth_filtered
+>     │   │   │   ├── depth_filtered_myrefine
+>     │   │   └── thr
+>     │   │       ├── depth
+>     │   │       ├── depth_filtered
+>     │   │       ├── depth_filtered_myrefine
+>     │   ├── <seq name>
+>     ├── test_day_list.txt
+>     ├── test_night_list.txt
+>     ├── test_rainy_list.txt
+>     ├── train_list.txt
+>     ├── train_split0_list.txt
+>     ├── train_split1_list.txt
+>     └── val_list.txt
 
 
 
