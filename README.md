@@ -62,75 +62,75 @@ Due to misalignment between the projected ground-truth filtered LiDAR depth ( in
 
 <details> <summary>📁 Finally the directory structure is like this: </summary>
 ```text
-xxx/Depth-Anything/metric_depth/data/ms2thermal/
-├── odom
-│   ├── _2021-08-06-10-59-33
-│   ├── <seq name>
-├── sync_data
-│   ├── _2021-08-06-10-59-33
-│   │   ├── calib.npy
-│   │   ├── gps_imu
-│   │   │   ├── data
-│   │   │   ├── dataformat.txt
-│   │   │   └── data_timestamp.txt
-│   │   ├── lidar
-│   │   │   ├── left
-│   │   │   ├── left_timestamp.txt
-│   │   │   ├── right
-│   │   │   └── right_timestamp.txt
-│   │   ├── nir
-│   │   │   ├── img_left
-│   │   │   ├── img_left_timestamp.txt
-│   │   │   ├── img_right
-│   │   │   └── img_right_timestamp.txt
-│   │   ├── readme.txt
-│   │   ├── rgb
-│   │   │   ├── img_left
-│   │   │   ├── img_left_skymask
-│   │   │   ├── img_left_timestamp.txt
-│   │   │   ├── img_right
-│   │   │   ├── img_right_timestamp.txt
-│   │   │   ├── raftstereo_disp_left
-│   │   │   └── raftstereo_disp_left_sgm
-│   │   └── thr
-│   │       ├── img_left
-│   │       ├── img_left_timestamp.txt
-│   │       ├── img_right
-│   │       ├── img_right_timestamp.txt
-│   │       ├── raftstereo_disp_left
-│   │       └── raftstereo_disp_left_sgm
-│   ├── <seq name>
-├── proj_depth
-│   ├── _2021-08-06-10-59-33
-│   │   ├── nir
-│   │   │   ├── depth
-│   │   │   ├── depth_filtered
-│   │   │   ├── depth_multi
-│   │   │   ├── intensity
-│   │   │   └── intensity_multi
-│   │   ├── readme.txt
-│   │   ├── rgb
-│   │   │   ├── depth
-│   │   │   ├── depth_filtered
-│   │   │   ├── depth_filtered_myrefine
-│   │   │   ├── depth_multi
-│   │   │   ├── intensity
-│   │   │   └── intensity_multi
-│   │   └── thr
-│   │       ├── depth
-│   │       ├── depth_filtered
-│   │       ├── depth_filtered_myrefine
-│   │       ├── depth_multi
-│   │       ├── intensity
-│   │       └── intensity_multi
-│   ├── <seq name>
-├── test_day_list.txt
-├── test_night_list.txt
-├── test_rainy_list.txt
-├── train_list.txt
-├── train_split0_list.txt
-├── train_split1_list.txt
-└── val_list.txt
+    xxx/Depth-Anything/metric_depth/data/ms2thermal/
+    ├── odom
+    │   ├── _2021-08-06-10-59-33
+    │   ├── <seq name>
+    ├── sync_data
+    │   ├── _2021-08-06-10-59-33
+    │   │   ├── calib.npy
+    │   │   ├── gps_imu
+    │   │   │   ├── data
+    │   │   │   ├── dataformat.txt
+    │   │   │   └── data_timestamp.txt
+    │   │   ├── lidar
+    │   │   │   ├── left
+    │   │   │   ├── left_timestamp.txt
+    │   │   │   ├── right
+    │   │   │   └── right_timestamp.txt
+    │   │   ├── nir
+    │   │   │   ├── img_left
+    │   │   │   ├── img_left_timestamp.txt
+    │   │   │   ├── img_right
+    │   │   │   └── img_right_timestamp.txt
+    │   │   ├── readme.txt
+    │   │   ├── rgb
+    │   │   │   ├── img_left
+    │   │   │   ├── img_left_skymask
+    │   │   │   ├── img_left_timestamp.txt
+    │   │   │   ├── img_right
+    │   │   │   ├── img_right_timestamp.txt
+    │   │   │   ├── raftstereo_disp_left
+    │   │   │   └── raftstereo_disp_left_sgm
+    │   │   └── thr
+    │   │       ├── img_left
+    │   │       ├── img_left_timestamp.txt
+    │   │       ├── img_right
+    │   │       ├── img_right_timestamp.txt
+    │   │       ├── raftstereo_disp_left
+    │   │       └── raftstereo_disp_left_sgm
+    │   ├── <seq name>
+    ├── proj_depth
+    │   ├── _2021-08-06-10-59-33
+    │   │   ├── nir
+    │   │   │   ├── depth
+    │   │   │   ├── depth_filtered
+    │   │   │   ├── depth_multi
+    │   │   │   ├── intensity
+    │   │   │   └── intensity_multi
+    │   │   ├── readme.txt
+    │   │   ├── rgb
+    │   │   │   ├── depth
+    │   │   │   ├── depth_filtered
+    │   │   │   ├── depth_filtered_myrefine
+    │   │   │   ├── depth_multi
+    │   │   │   ├── intensity
+    │   │   │   └── intensity_multi
+    │   │   └── thr
+    │   │       ├── depth
+    │   │       ├── depth_filtered
+    │   │       ├── depth_filtered_myrefine
+    │   │       ├── depth_multi
+    │   │       ├── intensity
+    │   │       └── intensity_multi
+    │   ├── <seq name>
+    ├── test_day_list.txt
+    ├── test_night_list.txt
+    ├── test_rainy_list.txt
+    ├── train_list.txt
+    ├── train_split0_list.txt
+    ├── train_split1_list.txt
+    └── val_list.txt
 ```
 
 
