@@ -1,0 +1,13 @@
+.idea
+depth_anything/__pycache__/
+depth_anything/util/__pycache__/
+torchhub/facebookresearch_dinov2_main/__pycache__/
+torchhub/facebookresearch_dinov2_main/dinov2/__pycache__/
+torchhub/facebookresearch_dinov2_main/dinov2/layers/__pycache__/
+vis_depth/
+**/__pycache__
+wandb
+depth_anything_finetune
+checkpoints
+data
+

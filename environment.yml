@@ -1,0 +1,28 @@
+name: monother_depth
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - cuda=12.1
+  - h5py
+  - hdf5
+  - matplotlib=3.6.2
+  - matplotlib-base=3.6.2
+  - numpy=1.24.1
+  - opencv=4.6.0
+  - pip
+  - python
+  - pytorch=2.3.0
+  - pytorch-cuda=12.1
+  - pytorch-mutex
+  - scipy
+  - torchaudio
+  - torchvision
+  - pip:
+    - huggingface-hub==0.11.1
+    - timm==0.6.12
+    - tqdm==4.64.1
+    - wandb==0.13.9
+    - ftfy==6.2.0
+    - regex
