@@ -9,5 +9,5 @@ vis_depth/
 wandb
 depth_anything_finetune
 checkpoints
-data
+/data/
 
